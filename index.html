@@ -201,10 +201,69 @@ faOSxpc6abOGx8nVyO5lZjhLWJYz7+xFQcy3HJYZlnfA8Au70fx3leQ5kLm+SNg42ffIbFXg4m88dFji
   <p class="mt-8 text-sm">La inversión (pago inicial único más licencia operativa mensual) se define después de su auditoría, según el alcance.</p>
 </section>
 
-<section id="contacto" class="reveal"><div class="max-w-6xl mx-auto px-5 py-24 md:py-32 grid md:grid-cols-2 gap-8 items-center">
-  <div><h2 class="h text-4xl md:text-5xl">¿Su caso es distinto? Mejor.</h2><p class="mt-4">Cuéntenos qué necesita su empresa y lo diseñamos a la medida. Pago inicial de precio fijo, entregas semanales en video y control total de su flujo al final.</p><a data-tally href="#" class="inline-block mt-7 bg-copper text-white font-semibold px-7 py-3 rounded-full hover:bg-ink transition-colors">Solicitar auditoría</a></div>
-  <div class="space-y-3"><a class="block text-copper font-semibold hover:text-ink" href="https://wa.me/525540370050">WhatsApp: 55 4037 0050</a><a class="block text-copper font-semibold hover:text-ink" href="mailto:Abautomations.business@gmail.com">Abautomations.business@gmail.com</a></div>
-</div></section>
+<style>#aud .tabbtn[aria-selected=true]::before{content:"✓ ";color:#9A6428}</style>
+<section id="perfil" class="max-w-6xl mx-auto px-5 py-24 md:py-32 grid md:grid-cols-[5fr_7fr] gap-14 items-start reveal">
+
+  <div class="md:sticky md:top-28">
+    <p class="eyebrow">Auditoría</p>
+    <h2 class="h text-4xl md:text-5xl mt-4">Cuéntenos de su operación y armamos su diagnóstico</h2>
+    <p class="mt-6 text-lg max-w-lg">Elija su industria y su puesto; las demás preguntas se ajustan a su caso. Toma unos 3 minutos.</p>
+    <div class="hidden md:block mt-10">
+      <p class="eyebrow">Así se arma su diagnóstico</p>
+      <ol id="sum" class="vflow"><li class="ai">Diagnóstico a la medida</li></ol>
+    </div>
+  </div>
+
+  <div>
+    <form id="aud" novalidate>
+      <div class="rail"><i></i></div><p class="mt-2 text-xs">Paso <b id="aph" class="text-ink">1</b> de 3</p>
+
+      <div data-st class="mt-8 space-y-8">
+        <div><h3 class="text-ink font-semibold text-xl">Quién es usted</h3><p class="mt-1 text-sm">Con esto adaptamos las preguntas siguientes.</p></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">Su industria</p><div id="c-ind" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">Su puesto o área</p><div id="c-rol" class="mt-3 flex flex-wrap gap-2"></div></div>
+      </div>
+
+      <div data-st class="mt-8 space-y-8" hidden>
+        <div><h3 class="text-ink font-semibold text-xl">Cómo opera hoy</h3><p class="mt-1 text-sm">Puede elegir varias opciones en cada pregunta.</p></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">¿Qué tarea le consume más tiempo?</p><div id="c-tar" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">¿Qué proceso quiere ordenar primero?</p><div id="c-pro" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">¿Qué software usa hoy?</p><div id="c-sof" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><p id="l-vol" class="text-ink font-semibold"></p><div id="c-vol" class="mt-3 flex flex-wrap gap-2"></div></div>
+      </div>
+
+      <div data-st class="mt-8 space-y-8" hidden>
+        <div><h3 class="text-ink font-semibold text-xl">Cómo quiere trabajar</h3><p class="mt-1 text-sm">Último paso: sus preferencias y cómo contactarlo.</p></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">¿Cuánto control quiere conservar?</p><div id="c-sup" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><p class="text-ink font-semibold">¿Dónde prefiere que viva la automatización?</p><div id="c-inf" class="mt-3 flex flex-wrap gap-2"></div></div>
+        <div class="pt-6 border-t border-slate/20"><label for="a-ide" class="text-ink font-semibold">Si pudiera, ¿cómo funcionaría ese proceso? <span class="font-normal text-sm">(opcional)</span></label>
+          <textarea id="a-ide" rows="3" class="mt-2 w-full bg-transparent text-ink py-2 border-b border-slate/40 focus:border-copper outline-none resize-none transition-colors"></textarea></div>
+        <div class="pt-6 border-t border-slate/20 grid sm:grid-cols-2 gap-x-8 gap-y-6">
+          <label class="block"><span class="text-xs">Empresa</span><input id="a-emp" autocomplete="organization" class="w-full bg-transparent text-ink py-2 border-b border-slate/40 focus:border-copper outline-none transition-colors"></label>
+          <label class="block"><span class="text-xs">Su nombre</span><input id="a-nom" autocomplete="name" class="w-full bg-transparent text-ink py-2 border-b border-slate/40 focus:border-copper outline-none transition-colors"></label>
+          <label class="block"><span class="text-xs">Correo</span><input id="a-mail" type="email" autocomplete="email" class="w-full bg-transparent text-ink py-2 border-b border-slate/40 focus:border-copper outline-none transition-colors"></label>
+          <label class="block"><span class="text-xs">WhatsApp (10 dígitos)</span><input id="a-tel" type="tel" autocomplete="tel" class="w-full bg-transparent text-ink py-2 border-b border-slate/40 focus:border-copper outline-none transition-colors"></label>
+        </div>
+        <label class="flex gap-3 text-sm"><input id="a-ok" type="checkbox" class="mt-1 accent-copper"><span>Acepto el <a href="#legal" class="ghost2">aviso de privacidad</a> y que me contacten por correo y WhatsApp.</span></label>
+      </div>
+
+      <input id="a-web" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p id="amsg" role="status" class="mt-6 text-sm text-ink"></p>
+      <div class="mt-4 pt-6 border-t border-slate/20 flex flex-wrap items-center gap-x-7 gap-y-3">
+        <button type="button" id="aback" class="ghost" hidden>← Atrás</button>
+        <button type="button" id="anext" class="bg-copper text-white font-semibold text-[13px] uppercase tracking-wide px-7 py-3.5 rounded-full hover:bg-ink transition-colors disabled:opacity-60">Continuar</button>
+      </div>
+      <p class="mt-4 text-xs">Al enviar, recibe un mensaje por WhatsApp con los siguientes pasos.</p>
+    </form>
+
+    <div id="aok" hidden>
+      <p class="eyebrow">Solicitud recibida</p>
+      <h3 class="h text-3xl md:text-4xl mt-3">Gracias por contarnos su caso</h3>
+      <p class="mt-4 max-w-lg">En unos minutos le llega un correo y un mensaje de WhatsApp con los siguientes pasos.</p>
+      <div class="flow"><b>Solicitud recibida</b><i></i><b>WhatsApp con siguientes pasos</b><i></i><b class="ai">Diagnóstico a la medida</b></div>
+    </div>
+  </div>
+</section>
 
 <section id="legal" class="max-w-4xl mx-auto px-5 py-20 reveal">
   <h2 class="font-display text-2xl md:text-3xl leading-snug text-silver">Aviso de privacidad y políticas</h2>
@@ -333,6 +392,13 @@ addEventListener("scroll",()=>{const s=document.documentElement;$("#bar").style.
 const rv=$$(".reveal");
 if("IntersectionObserver" in window){const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("active");o.unobserve(e.target)}}),{threshold:.08,rootMargin:"0px 0px -40px 0px"});rv.forEach(x=>io.observe(x))}
 else rv.forEach(x=>x.classList.add("active"));
+
+/* Resumen en vivo del perfil (panel izquierdo) */
+const SUM=[["Industria","c-ind"],["Puesto o área","c-rol"],["Tareas que le quitan tiempo","c-tar"],["Procesos a ordenar","c-pro"],["Software actual","c-sof"],["Volumen mensual","c-vol"],["Control","c-sup"],["Infraestructura","c-inf"]];
+const sumEl=$("#sum"),sumLi=SUM.map(([t])=>{const li=document.createElement("li");li.hidden=true;li.innerHTML='<span class="block text-xs text-slate font-normal">'+t+'</span><span></span>';sumEl.insertBefore(li,sumEl.lastElementChild);return li});
+function sum(){SUM.forEach(([t,id],k)=>{const v=val(id);sumLi[k].hidden=!v.length;sumLi[k].lastElementChild.textContent=v.join(", ")})}
+$("#aud").addEventListener("click",sum);
+</script> 
 </script>
 </body>
 </html>
