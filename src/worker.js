@@ -21,7 +21,12 @@ export default {
 
     const r = await fetch(env.MAKE_WEBHOOK, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "X-Webhook-Secret": env.WEBHOOK_AUTH_TOKEN },
+      headers: {
+  "Content-Type": "application/json",
+  "X-Webhook-Secret": env.WEBHOOK_AUTH_TOKEN,
+  "CF-Access-Client-Id": env.CF_ACCESS_CLIENT_ID,
+  "CF-Access-Client-Secret": env.CF_ACCESS_CLIENT_SECRET,
+     },
       body: JSON.stringify(d),
     });
     return Response.json({ ok: r.ok }, { status: r.ok ? 200 : 502 });
