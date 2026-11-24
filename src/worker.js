@@ -6,6 +6,7 @@ export default {
     if (url.pathname !== "/api/auditoria") return new Response("Not found", { status: 404 });
     if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
     if (!env.MAKE_WEBHOOK) return new Response("Servicio no configurado", { status: 503 });
+    if (!env.WEBHOOK_AUTH_TOKEN) return new Response("Servicio no configurado", { status: 503 });
 
     let d;
     try { d = await request.json(); } catch { return new Response("bad request", { status: 400 }); }
@@ -20,7 +21,7 @@ export default {
 
     const r = await fetch(env.MAKE_WEBHOOK, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "X-Webhook-Secret": env.WEBHOOK_AUTH_TOKEN },
       body: JSON.stringify(d),
     });
     return Response.json({ ok: r.ok }, { status: r.ok ? 200 : 502 });
